@@ -6,5 +6,9 @@
 
 [Q11) 좋은 feature란 무엇인가요. 이 feature의 성능을 판단하기 위한 방법에는 어떤 것이 있나요](https://sherry-data.tistory.com/12)
 
+[딥러닝 입력 데이터 정규화 (Normalizing inputs)](https://goodtogreate.tistory.com/entry/Neural-Network-%EC%A0%81%EC%9A%A9-%EC%A0%84%EC%97%90-Input-data%EB%A5%BC-Normalize-%ED%95%B4%EC%95%BC-%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0)
 
+[Why do we have to normalize the input for an artificial neural network?](https://stackoverflow.com/questions/4674623/why-do-we-have-to-normalize-the-input-for-an-artificial-neural-network)
+
+[정규화(normalization)](https://adnoctum.tistory.com/184)
 
