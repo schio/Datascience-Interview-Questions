@@ -12,3 +12,15 @@
 
 [정규화(normalization)](https://adnoctum.tistory.com/184)
 
+[[리얼밸리 EP 05] 머신러닝, 딥러닝 초간단 설명](https://www.youtube.com/watch?v=aF03asAmQbY)
+
+[[Cost Function] 로지스틱 회귀의 비용함수 이해](https://mobicon.tistory.com/544)
+
+[Overfitting을 해결하자 - Droupout과 앙상블](https://bluejake.tistory.com/16)
+
+[#5-(5) 학습 관련 기술 : 초매개변수 설정](https://kolikim.tistory.com/51)
+
+[Deep Learning for Beginners - 딥러닝](https://sungjk.github.io/2017/04/26/Ch5-deep-learning.html)
+
+
+

@@ -192,54 +192,70 @@
 ## 딥러닝
 ## 딥러닝 일반
 - 딥러닝은 무엇인가요? 딥러닝과 머신러닝의 차이는?
+  - 딥러닝이란
+    - 보통 수개 이상의 뉴럴넷 층이 켜켜히 쌓인 모델을 딥러닝이라 한다.
+  - [머신러닝을 할 때엔 인간이 데이터를 많이 주고 이런 종류의 모델을 적용해보라 라고 직접 명시한다](https://www.youtube.com/watch?v=aF03asAmQbY)
 - 왜 갑자기 딥러닝이 부흥했을까요?
+  - 60-70년대에 제안이 되었으나 이 때에는 데이터가 부족했다. 하지만 최근 데이터 양이 폭발하였고 컴퓨팅 성능이 향상하는 등 최소한의 환경이 구축 되었다.
+  - 몇년 전 이미지넷에서 딥러닝을 이용한 모델이 1위를 차지 하고 그 뒤로 계속 딥러닝 모델을 적용한 팀이 순위권을 차지하며 딥러닝이 부흥하게 되었다.
 - 마지막으로 읽은 논문은 무엇인가요? 설명해주세요
 - Cost Function과 Activation Function은 무엇인가요?
+  - cost function
+    - 머신러닝에서 [최적의 W(가중치, 기울기)와 b(시작점)를 찾기 위한 함수](https://mobicon.tistory.com/544) 실제 값에서 예측한 값의 차이가 가장 작은 값을 구해야 하는데 이 값을 측정할 때 쓴다.
+  - activation function
+    - MLP의 경우 한 레이어를 거쳐 다음 레이어로 넘어갈 때 결과값을 다음 레이어에 전달하게 된다. 이 결과 값을 어떤 기준으로 처리할 지 activation function을 거치게 된다. 대표적으로 시그모이드, 렐루 등이 있다. activation function을 잘 선택하는 것만으로도 성능향상을 볼 수 있다.
 - Tensorflow, Keras, PyTorch, Caffe, Mxnet 중 선호하는 프레임워크와 그 이유는 무엇인가요?
 - Data Normalization은 무엇이고 왜 필요한가요?
 - 알고있는 Activation Function에 대해 알려주세요. (Sigmoid, ReLU, LeakyReLU, Tanh 등)
 - 오버피팅일 경우 어떻게 대처해야 할까요?
+  - [W가 너무 큰 값을 가질수록 오버피팅의 가능성이 높다. L2 Regularization 즉, W 값이 클수록 페널티를 부여해 해결할 수 있다](https://bluejake.tistory.com/16)
+  - [다른 방법으로 드랍아웃이 있다. 학습 시 일부 노드만 무작위로 골라 학습시킨다. 학습되는 노드와 가중치들이 매번 달라져 오버피팅을 예방한다. 비율은 은닉층 50%, 입력노드 26%가 일반적](https://sungjk.github.io/2017/04/26/Ch5-deep-learning.html)
+  - 다른 방법으로 앙상블 기법이 있다. 여러 NN 모델로 학습 후 이를 모두 합쳐 결과를 예측한다. 단일 모델 사용보다 정확도가 높고 대표적 예로 XGBoost가 있다.
 - 하이퍼 파라미터는 무엇인가요?
+  - [W처럼 모델이 스스로 갱신하는 매개변수가 아닌 사람이 직접 설정해주어야 하는 매개변수. 뉴런 수, batch 크기, learning rate 등이 있다](https://kolikim.tistory.com/51) 사람이 결정해야 하기에 여러 옵션으로 테스트 하게 되고 사람의 노동력이 필요하다. 반복 테스트이기에 자동화 해두면 좋다.
 - Weight Initialization 방법에 대해 말해주세요. 그리고 무엇을 많이 사용하나요?
+  - x와 w를 곱으로 연결하여 연산한다. 이때 w를 어떻게 초기화 해주는지가 중요하다. [RBM(Restricted Boltzmann Machine)의 경우 forward layer, backward layer이 서로 W 값을 주고 받으며 최초 전달된 x와 예측 x의 차가 최소가 되는 w를 발견하게 된다.](https://pythonkim.tistory.com/41)
+  - Xavier, he를 많이 사용한다.
 - 볼츠만 머신은 무엇인가요?
+  - RBM(Restricted Boltzmann Machine)의 경우 forward layer, backward layer이 서로 W 값을 주고 받으며 최초 전달된 x와 예측 x의 차가 최소가 되는 w를 발견하게 된다.
 - 요즘 Sigmoid 보다 ReLU를 많이 쓰는데 그 이유는?
-	- Non-Linearity라는 말의 의미와 그 필요성은?
-	- ReLU로 어떻게 곡선 함수를 근사하나?
-	- ReLU의 문제점은?
-	- Bias는 왜 있는걸까?
+  - Non-Linearity라는 말의 의미와 그 필요성은?
+  - ReLU로 어떻게 곡선 함수를 근사하나?
+  - ReLU의 문제점은?
+  - Bias는 왜 있는걸까?
 - Gradient Descent에 대해서 쉽게 설명한다면?
-	- 왜 꼭 Gradient를 써야 할까? 그 그래프에서 가로축과 세로축 각각은 무엇인가? 실제 상황에서는 그 그래프가 어떻게 그려질까?
-	- GD 중에 때때로 Loss가 증가하는 이유는?
-	- 중학생이 이해할 수 있게 더 쉽게 설명 한다면?
-	- Back Propagation에 대해서 쉽게 설명 한다면?
+  - 왜 꼭 Gradient를 써야 할까? 그 그래프에서 가로축과 세로축 각각은 무엇인가? 실제 상황에서는 그 그래프가 어떻게 그려질까?
+  - GD 중에 때때로 Loss가 증가하는 이유는?
+  - 중학생이 이해할 수 있게 더 쉽게 설명 한다면?
+  - Back Propagation에 대해서 쉽게 설명 한다면?
 - Local Minima 문제에도 불구하고 딥러닝이 잘 되는 이유는?
-	- GD가 Local Minima 문제를 피하는 방법은?
-	- 찾은 해가 Global Minimum인지 아닌지 알 수 있는 방법은?
+  - GD가 Local Minima 문제를 피하는 방법은?
+  - 찾은 해가 Global Minimum인지 아닌지 알 수 있는 방법은?
 - Training 세트와 Test 세트를 분리하는 이유는?
-	- Validation 세트가 따로 있는 이유는?
-	- Test 세트가 오염되었다는 말의 뜻은?
-	- Regularization이란 무엇인가?
+  - Validation 세트가 따로 있는 이유는?
+  - Test 세트가 오염되었다는 말의 뜻은?
+  - Regularization이란 무엇인가?
 - Batch Normalization의 효과는?
-	- Dropout의 효과는?
-	- BN 적용해서 학습 이후 실제 사용시에 주의할 점은? 코드로는?
-	- GAN에서 Generator 쪽에도 BN을 적용해도 될까?
+  - Dropout의 효과는?
+  - BN 적용해서 학습 이후 실제 사용시에 주의할 점은? 코드로는?
+  - GAN에서 Generator 쪽에도 BN을 적용해도 될까?
 - SGD, RMSprop, Adam에 대해서 아는대로 설명한다면?
-	- SGD에서 Stochastic의 의미는?
-	- 미니배치를 작게 할때의 장단점은?
-	- 모멘텀의 수식을 적어 본다면?
+  - SGD에서 Stochastic의 의미는?
+  - 미니배치를 작게 할때의 장단점은?
+  - 모멘텀의 수식을 적어 본다면?
 - 간단한 MNIST 분류기를 MLP+CPU 버전으로 numpy로 만든다면 몇줄일까?
-	- 어느 정도 돌아가는 녀석을 작성하기까지 몇시간 정도 걸릴까?
-	- Back Propagation은 몇줄인가?
-	- CNN으로 바꾼다면 얼마나 추가될까?
+  - 어느 정도 돌아가는 녀석을 작성하기까지 몇시간 정도 걸릴까?
+  - Back Propagation은 몇줄인가?
+  - CNN으로 바꾼다면 얼마나 추가될까?
 - 간단한 MNIST 분류기를 TF, Keras, PyTorch 등으로 작성하는데 몇시간이 필요한가?
-	- CNN이 아닌 MLP로 해도 잘 될까?
-	- 마지막 레이어 부분에 대해서 설명 한다면?
-	- 학습은 BCE loss로 하되 상황을 MSE loss로 보고 싶다면?
-	- 만약 한글 (인쇄물) OCR을 만든다면 데이터 수집은 어떻게 할 수 있을까?
+  - CNN이 아닌 MLP로 해도 잘 될까?
+  - 마지막 레이어 부분에 대해서 설명 한다면?
+  - 학습은 BCE loss로 하되 상황을 MSE loss로 보고 싶다면?
+  - 만약 한글 (인쇄물) OCR을 만든다면 데이터 수집은 어떻게 할 수 있을까?
 - 딥러닝할 때 GPU를 쓰면 좋은 이유는?
-	- 학습 중인데 GPU를 100% 사용하지 않고 있다. 이유는?
-	- GPU를 두개 다 쓰고 싶다. 방법은?
-	- 학습시 필요한 GPU 메모리는 어떻게 계산하는가?
+  - 학습 중인데 GPU를 100% 사용하지 않고 있다. 이유는?
+  - GPU를 두개 다 쓰고 싶다. 방법은?
+  - 학습시 필요한 GPU 메모리는 어떻게 계산하는가?
 - TF, Keras, PyTorch 등을 사용할 때 디버깅 노하우는?
 - 뉴럴넷의 가장 큰 단점은 무엇인가? 이를 위해 나온 One-Shot Learning은 무엇인가? 
 
