@@ -144,7 +144,7 @@
 - 알고 있는 metric에 대해 설명해주세요(ex. RMSE, MAE, recall, precision ...)
   - MSE: 편차의 제곱 합에 평균을 취함.
   - RMSE: MSE에 루트를 씌움. Regression에서 쓰이고, [추정 정확도의 척도로써 수학적 분석이 쉽고 계산이 용이.](http://www.ktword.co.kr/abbr_view.php?m_temp1=3754)
-  - MAE: 모든 절대 오차의 평균이다. ![codecogseqn](https://user-images.githubusercontent.com/19237348/51692217-d16b2800-203f-11e9-8122-bdf92f305c5c.gif)
+  - MAE: [모든 절대 오차의 평균이다.](https://chukycheese.github.io/translation/statistics/absolute-error-and-mean-absolute-error/) ![codecogseqn](https://user-images.githubusercontent.com/19237348/51692217-d16b2800-203f-11e9-8122-bdf92f305c5c.gif)
 
   - Recall
   - Precision

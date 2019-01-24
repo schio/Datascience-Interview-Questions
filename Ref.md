@@ -22,5 +22,5 @@
 
 [Deep Learning for Beginners - 딥러닝](https://sungjk.github.io/2017/04/26/Ch5-deep-learning.html)
 
-
+[29가지 통계 개념 - 절대 오차와 평균 절대 오차(MAE)](https://chukycheese.github.io/translation/statistics/absolute-error-and-mean-absolute-error/)
 
