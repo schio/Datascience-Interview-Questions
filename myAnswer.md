@@ -125,7 +125,7 @@
   - 따라서, 출동하는 소방 대원이 많아지는 것이, 화재가 커지는 원인이다.
   - 출동하는 소방대원 수, 화재의 규모에는 강한 상관관계가 있다. 하지만 소방대원이 많이 출동한다고 화재의 규모가 커지는 것은 아니다.
   - 상관관계: 어떤 것들의 사이가 밀접한 것만을 나타내며 어느 것이 원인, 결과인지 증거를 제공하지 않는다.
-  - 인과관계: [최소 아래 3가지 성립조건(John S. Mill)이 필요하다] (http://dbr.donga.com/article/view/1303/article_no/6894)
+  - 인과관계: [최소 아래 3가지 성립조건(John S. Mill)이 필요하다](http://dbr.donga.com/article/view/1303/article_no/6894)
     1. 원인이 결과보다 시간적으로 앞서야 한다.
     2. 원인과 결과는 관련 있어야 한다.
     3. 결과는 원인이 되는 변수만으로 설명이 돼야 하고 다른 변수에 의한 설명은 제거돼야 한다.
@@ -142,6 +142,14 @@
 - Cross Validation은 무엇이고 어떻게 해야하나요?
 - 회귀 / 분류시 알맞은 metric은 무엇일까요?
 - 알고 있는 metric에 대해 설명해주세요(ex. RMSE, MAE, recall, precision ...)
+  - MSE: 편차의 제곱 합에 평균을 취함.
+  - RMSE: MSE에 루트를 씌움. Regression에서 쓰이고, [추정 정확도의 척도로써 수학적 분석이 쉽고 계산이 용이.](http://www.ktword.co.kr/abbr_view.php?m_temp1=3754)
+  - MAE: 모든 절대 오차의 평균이다. ![codecogseqn](https://user-images.githubusercontent.com/19237348/51692217-d16b2800-203f-11e9-8122-bdf92f305c5c.gif)
+
+  - Recall
+  - Precision
+  - F1-Score
+  - ROC
 - 정규화를 왜 해야할까요? 정규화의 방법은 무엇이 있나요?
   - 정규화 하는 이유
     - 실 데이터들은 각 feature간 데이터 범위가 들쭉날쭉하다. 정규화 작업을 거치지 않는다면 실제로 모델 학습 시 결과가 None로 나온다. 실제로 normalization을 진행하거나 Learning rate를 매우 작게 해주어 해결했던 경험이 있다.  
