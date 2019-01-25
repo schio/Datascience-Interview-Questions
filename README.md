@@ -1,3 +1,8 @@
+변성윤님이 정리해놓으신 질문리스트에 답을 해나갈 예정입니다.
+인용하거나 참고한 경우 하이퍼링크를 달겠습니다.
+
+제 답변이 답은 아닙니다. 참고만 하시길 바랍니다.
+
 # Datascience-Interview-Questions
 - [![HitCount](http://hits.dwyl.io/zzsza/Datascience-Interview-Questions.svg)](http://hits.dwyl.io/zzsza/Datascience-Interview-Questions)
 - Made by [Seongyun Byeon](https://github.com/zzsza)
