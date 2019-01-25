@@ -121,9 +121,13 @@
     - Filter는 종속변수, 상관 관계를 통해 변수의 관련성 측정, 모델 학습 비포함이라 속도가 빠름, 통계적 방법 사용
     - Wrapper는 실제 모델을 만들어 변수 집합의 유용성 측정, 교차 유효성 검사를 사용. 일부 기능 사용시 과적합 발생하기 더 쉬움
 - "상관관계는 인과관계를 의미하지 않는다"라는 말이 있습니다. 설명해주실 수 있나요?
-  - [화재 현장에 출동하는 소방 대원이 많을수록, 화재의 규모는 크다.](https://ko.wikipedia.org/wiki/%EC%83%81%EA%B4%80%EC%9D%80_%EC%9D%B8%EA%B3%BC%EB%A5%BC_%EB%82%98%ED%83%80%EB%82%B4%EC%A7%80_%EC%95%8A%EB%8A%94%EB%8B%A4)
-  - 따라서, 출동하는 소방 대원이 많아지는 것이, 화재가 커지는 원인이다.
-  - 출동하는 소방대원 수, 화재의 규모에는 강한 상관관계가 있다. 하지만 소방대원이 많이 출동한다고 화재의 규모가 커지는 것은 아니다.
+
+  [화재 현장에 출동하는 소방 대원이 많을수록, 화재의 규모는 크다.](https://ko.wikipedia.org/wiki/%EC%83%81%EA%B4%80%EC%9D%80_%EC%9D%B8%EA%B3%BC%EB%A5%BC_%EB%82%98%ED%83%80%EB%82%B4%EC%A7%80_%EC%95%8A%EB%8A%94%EB%8B%A4)
+
+  따라서, 출동하는 소방 대원이 많아지는 것이, 화재가 커지는 원인이다.
+
+  출동하는 소방대원 수, 화재의 규모에는 강한 상관관계가 있다. 하지만 소방대원이 많이 출동한다고 화재의 규모가 커지는 것은 아니다.
+
   - 상관관계: 어떤 것들의 사이가 밀접한 것만을 나타내며 어느 것이 원인, 결과인지 증거를 제공하지 않는다.
   - 인과관계: [최소 아래 3가지 성립조건(John S. Mill)이 필요하다](http://dbr.donga.com/article/view/1303/article_no/6894)
     1. 원인이 결과보다 시간적으로 앞서야 한다.
@@ -140,58 +144,113 @@
 
 ## 머신러닝
 - Cross Validation은 무엇이고 어떻게 해야하나요?
+
 - 회귀 / 분류시 알맞은 metric은 무엇일까요?
+
 - 알고 있는 metric에 대해 설명해주세요(ex. RMSE, MAE, recall, precision ...)
   - MSE: 편차의 제곱 합에 평균을 취함.
   - RMSE: MSE에 루트를 씌움. Regression에서 쓰이고, [추정 정확도의 척도로써 수학적 분석이 쉽고 계산이 용이.](http://www.ktword.co.kr/abbr_view.php?m_temp1=3754)
   - MAE: [모든 절대 오차의 평균이다.](https://chukycheese.github.io/translation/statistics/absolute-error-and-mean-absolute-error/) ![codecogseqn](https://user-images.githubusercontent.com/19237348/51692217-d16b2800-203f-11e9-8122-bdf92f305c5c.gif)
+  - [Recall: 실제 Positive 중 Positive로 예측한 표본 수. TP/TP+FN](https://datascienceschool.net/view-notebook/731e0d2ef52c41c686ba53dcaf346f32/)
+  - Precision: 예측한 Positive 중 실제 Positive에 속하는 수. TP/TP+FP
+  - Fall-out: 실제 Negative 중 Positive에 속한다고 예측한 수. FP/FP+TN
+  - F1-Score: 군대에는 남자가 많다. 군대 구성원의 성별을 예측한다 할 때 예측결과값을 전부 남자다!라고 예측 한다면 꽤 높은 Accuracy가 나올 수 있다. 하지만 모델이 제대로 예측했다고 할 수 있는가? 이 모델의 예측이 의미가 있음을 보증할 수 있는가? 이때 F1-Score를 사용한다. 앞서 말한 Recall과 Frecision을 이용하여 모델이 제대로 된 의미를 가지고 예측했는지 평가한다. 그래서 Accuracy 보다는 낮아지는 경향이 있다. 만약 F1-Score와 Accuracy가 누가봐도 많이 차이 난다면 해당 모델은 제기능을 못하는 것이다. 2x((precision x recall)/(precision + recall))
+  - ROC: 각 참, 거짓에 대해 얼마나 제대로 참, 거짓이라 구분할 수 있는지를 의미.
+  - ACU: [ROC의 면적으로 전체적으로 민감도와 특이도의 상관 관계를 볼 수 있다.](https://pyopyo03.tistory.com/8)
 
-  - Recall
-  - Precision
-  - F1-Score
-  - ROC
 - 정규화를 왜 해야할까요? 정규화의 방법은 무엇이 있나요?
   - 정규화 하는 이유
-    - 실 데이터들은 각 feature간 데이터 범위가 들쭉날쭉하다. 정규화 작업을 거치지 않는다면 실제로 모델 학습 시 결과가 None로 나온다. 실제로 normalization을 진행하거나 Learning rate를 매우 작게 해주어 해결했던 경험이 있다.  
-    - [Unnormalized에서는 cost가 elongated](https://goodtogreate.tistory.com/entry/Neural-Network-%EC%A0%81%EC%9A%A9-%EC%A0%84%EC%97%90-Input-data%EB%A5%BC-Normalize-%ED%95%B4%EC%95%BC-%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0)
-    - normalization 적용 시 좀 더 spherical 형태가 되어 쉽고 빠르게 최적화 지점을 찾음
+
+    실 데이터들은 각 feature간 데이터 범위가 들쭉날쭉하다. 정규화 작업을 거치지 않는다면 실제로 모델 학습 시 결과가 None로 나온다. 실제로 normalization을 진행하거나 Learning rate를 매우 작게 해주어 해결했던 경험이 있다.  
+
+    [Unnormalized에서는 cost가 elongated](https://goodtogreate.tistory.com/entry/Neural-Network-%EC%A0%81%EC%9A%A9-%EC%A0%84%EC%97%90-Input-data%EB%A5%BC-Normalize-%ED%95%B4%EC%95%BC-%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0)
+
+    normalization 적용 시 좀 더 spherical 형태가 되어 쉽고 빠르게 최적화 지점을 찾음
+
   - [정규화 방법](https://adnoctum.tistory.com/184)
     - 평균값을 이용한 정규화: 데이터 값 분포가 정규분포임을 가정하고 평균과 멀어질수록 값을 크게 줌.
     - 중간값을 이용한 정규화:  위 방식과 유사하나 data에서 값 뺄 때 평균 대신 중간값을 사용. 중간값은 평균값과 달리 outlier에 영향을 받지 않으므로 더 안정적이다.
     - Quantile 정규화: 각 feature들을 diagonal로 projection 시킨다. 제일 작은 값들, 제일 큰값들, 그 외 같은 순위의 값들은 각각 같은 값을 가진다. 각 data set이 서로 다른 noise에 의해 분포 전체 위치가 변할 가능성이 있을 때 필요하다.
+
 - Local Minima와 Global Minima에 대해 설명해주세요.
+
 - 차원의 저주에 대해 설명해주세요
-  - 소득을 예측할 때 주소지만을 가지고 할때와 주소지, 직업, 연령 등 다양한 feature를 가지고 학습, 예측할 때 더 높은 정확도를 얻을 수 있다. 하지만 이 feature가 특이점을 넘어서는 순간 정확도는 급감하게 되고 이를 차원의 저주라 한다.
+
+  소득을 예측할 때 주소지만을 가지고 할때와 주소지, 직업, 연령 등 다양한 feature를 가지고 학습, 예측할 때 더 높은 정확도를 얻을 수 있다. 하지만 이 feature가 특이점을 넘어서는 순간 정확도는 급감하게 되고 이를 차원의 저주라 한다.
+
 - dimension reduction기법으로 보통 어떤 것들이 있나요?
+
 - PCA는 차원 축소 기법이면서, 데이터 압축 기법이기도 하고, 노이즈 제거기법이기도 합니다. 왜 그런지 설명해주실 수 있나요?
+
+  - [데이터들의 주성분 벡터 찾아주는 방법이다. 주성분이라 함은 그 방향으로 데이터들의 분산이 가장 큰 방향 벡터를 의미한다. 예로 2차원일 경우 분산이 가장 큰 방향과 그의 수직 방향인 주성분 벡터 2개를 찾아주는 것.(https://darkpgmr.tistory.com/110) 이를 통해 차원 축소가 가능하다.
+  - 데이터 압축의 의미는 k개의 주성분 벡터들과 계수들만을 저장함으로써 저장용량을 크게 줄일 수 있기 때문. 참고로 SVD(특이값분해)를 이용한 데이터 압축은 데이터를 개별적으로 압축하지만 PCA는 데이터를 집합적으로 압축한다는 점이 다르다.
+  - 노이즈제거의 의미는 K개의 주성분만을 이용해 데이터를 복원함으로써 의미없는 노이즈 부분을 날린다는 의미다.
+
 - LSA, LDA, SVD 등의 약자들이 어떤 뜻이고 서로 어떤 관계를 가지는지 설명할 수 있나요?
+
 - Markov Chain을 고등학생에게 설명하려면 어떤 방식이 제일 좋을까요?
+
 - 텍스트 더미에서 주제를 추출해야 합니다. 어떤 방식으로 접근해 나가시겠나요?
+
 - SVM은 왜 반대로 차원을 확장시키는 방식으로 동작할까요? 거기서 어떤 장점이 발생했나요?
+
 - 다른 좋은 머신 러닝 대비, 오래된 기법인 나이브 베이즈(naive bayes)의 장점을 옹호해보세요.
   - 확률을 기반으로 하는 기법이다.
   - 한 사건의 가능성을 추론하기 위해 온갖 상황, 가능성을 부여할 수 있고 많을 수록 정확도가 높아진다.
   - 하지만 부여된 사건의 가능성 갯수에 따라 계산량이 기하급수적으로 올라간다.
   - 그래서 컴퓨팅 성능이 발전한 미래라면? 양자컴퓨터가 엄청 발전한다면? 딥러닝보다 나이브베이즈가 좋지 않을까?
+
 - Association Rule의 Support, Confidence, Lift에 대해 설명해주세요.
+
 - 최적화 기법중 Newton’s Method와 Gradient Descent 방법에 대해 알고 있나요?
+
 - 머신러닝(machine)적 접근방법과 통계(statistics)적 접근방법의 둘간에 차이에 대한 견해가 있나요?
+
 - 인공신경망(deep learning이전의 전통적인)이 가지는 일반적인 문제점은 무엇일까요?
+
 - 지금 나오고 있는 deep learning 계열의 혁신의 근간은 무엇이라고 생각하시나요?
+
   - 
+
 - ROC 커브에 대해 설명해주실 수 있으신가요?
+
 - 여러분이 서버를 100대 가지고 있습니다. 이때 인공신경망보다 Random Forest를 써야하는 이유는 뭘까요?
+
 - K-means의 대표적 의미론적 단점은 무엇인가요? (계산량 많다는것 말고)
+
 - L1, L2 정규화에 대해 설명해주세요
+
 - XGBoost을 아시나요? 왜 이 모델이 캐글에서 유명할까요?
   - 요즘 딥러닝이 유행하고 있다. 유행하게 된 이유는 이미지넷의 문제에 대한 해답을 딥러닝이 획기적으로 발전시켰기 때문. 허나 이는 이미지라는 분야에서다. 물론 다른 분야에서도 딥러닝을 많이 쓰지만.
   - 지금도 여전히 구조적데이터를 이용한 예측을 많이 하고 있다. 예를 들어 유저의 플레이 로그를 통한 이탈 예측에선 딥러닝보다 XGBoost가 더 빠른 학습 및 예측을 할 수 있다. 도메인에 따라 적합한 모델을 써야하고 XGBoost도 많은 분야에서 적용할 수 있다. 더구나 앙상블을 활용함으로써 더 좋은 결과를 내기에 캐글에서 빠르고 유연한 XGBoost를 이용한 우승자가 많이 배출 되었다.
-- 앙상블 방법엔 어떤 것들이 있나요?
+
+- [앙상블 방법엔 어떤 것들이 있나요?](https://swalloow.github.io/bagging-boosting)
+
+  - Bagging
+    - 샘플을 여러개 뽑아 각 병렬로 동일한 모델을 학습시킨다. 학습된 모델의 예측변수들을 집계하여 그 결과로 모델을 생성해냄. 일반적 모델을 만들 때 좋음
+    - 이유는 알고리즘의 안정성과 정확성을 향상시키기 위해서. 대부분 학습에서 높은 bias로 인한 Underfitting와 높은 Variance로 인한 Overfitting이 많이 일어난다. 특히 Bagging은 각 샘플에서 나타난 결과를 일종의 중간값으로 맞추어 주어 Overfitting을 피할 수 있다.
+    - 대표적 Bagging 알고리즘으로 RandomForest 모델이 있음. 단일 DecisionTree 모델은 boundary가 discrete 한 모양일 수 밖에 없지만, RandomForest는 여러 트리 모델을 결합하여 이를 넘어설 수 있게 되었습니다.
+  - Boosting
+    - 맞추기 어려운 문제 해결에 초점
+    - Bagging와 동일하게 랜덤 샘플링을 하지만 가중치를 부여하며 병렬이 아닌 순차적으로 학습한다.
+    - 학습 종료시 나온 결과에 따라 가중치가 재분배 되어 정확도가 높게 나타남.
+    - 하지만 그만큼 Outlier에 취약하다.
+  - Stacking
+    - Meta Modeling 라고도 불린다.
+    - 서로 다른 모델들을 조합하여 최고의 성능을 내는 모델을 생성(SVM, RandomForest, KNN 등)
+    - 이러한 조합을 통해 서로의 장점은 취하고 약점은 보완한다.
+    - 연산량이 어마어마하다.
+
 - SVM은 왜 좋을까요?
+
 - feature vector란 무엇일까요?
+
 - 좋은 모델의 정의는 무엇일까요?
+
 - 50개의 작은 의사결정 나무는 큰 의사결정 나무보다 괜찮을까요? 왜 그렇게 생각하나요?
+
 - 스팸 필터에 로지스틱 리그레션을 많이 사용하는 이유는 무엇일까요?
+
 - OLS(ordinary least squre) regression의 공식은 무엇인가요?
 
 

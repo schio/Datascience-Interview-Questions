@@ -24,3 +24,11 @@
 
 [29가지 통계 개념 - 절대 오차와 평균 절대 오차(MAE)](https://chukycheese.github.io/translation/statistics/absolute-error-and-mean-absolute-error/)
 
+[Bagging과 Boosting 그리고 Stacking](https://swalloow.github.io/bagging-boosting)
+
+[분류 성능 평가](https://datascienceschool.net/view-notebook/731e0d2ef52c41c686ba53dcaf346f32/)
+
+[[분석] ROC 커브와 AUC, 그리고 민감도와 특이도](https://pyopyo03.tistory.com/8)
+
+[[선형대수학 #6] 주성분분석(PCA)의 이해와 활용](https://darkpgmr.tistory.com/110)
+
