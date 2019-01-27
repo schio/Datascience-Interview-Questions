@@ -32,3 +32,12 @@
 
 [[선형대수학 #6] 주성분분석(PCA)의 이해와 활용](https://darkpgmr.tistory.com/110)
 
+[CS231n Convolutional Neural Networks for Visual Recognition](http://aikorea.org/cs231n/neural-networks-2-kr/)
+
+[Local Minima 문제에 대한 새로운 시각](https://darkpgmr.tistory.com/148)
+
+[용어 정리](https://ratsgo.github.io/machine%20learning/2017/10/12/terms/)
+
+[딥러닝 모델의 교차검증 (Cross Validation)](https://3months.tistory.com/321)
+
+[KFold-Cross-Validation교차검증-정의-및-설명](https://nonmeyet.tistory.com/entry/KFold-Cross-Validation%EA%B5%90%EC%B0%A8%EA%B2%80%EC%A6%9D-%EC%A0%95%EC%9D%98-%EB%B0%8F-%EC%84%A4%EB%AA%85)
